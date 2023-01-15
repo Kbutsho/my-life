@@ -17,7 +17,6 @@ import map from '../../assets/featured-card/map.png'
 const FeaturedCard = () => {
     return (
         <div style={{ width: "60%", margin: "0 auto" }}>
-            <div className="container">
                 <div className="row">
 
                     {/* card 1 */}
@@ -122,7 +121,7 @@ const FeaturedCard = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+          
         </div>
     );
 };

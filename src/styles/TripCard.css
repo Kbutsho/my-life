@@ -1,0 +1,29 @@
+.trip-box{
+    margin: 20px 0;
+    min-height: 280px;
+    background-color: white;
+    border-radius: 10px;
+    transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 2px;
+}
+.trip-box:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.trip-box h6{
+    margin-top: 20px;
+    color: #19A526;
+    font-weight: bold;
+    margin-bottom: -3px;
+}
+.trip-box small{
+    color: #909090;
+    font-weight: bold;
+    font-size: 12px;
+}
+.trip-box img{
+    transition: 0.3s;
+}
+.trip-box img:hover{
+    transform:scale(.9);
+    border-radius: 10px;
+}
