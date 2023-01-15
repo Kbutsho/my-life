@@ -16,9 +16,11 @@ import map from '../../assets/featured-card/map.png'
 
 const FeaturedCard = () => {
     return (
-        <div style={{ width: "60%", margin: "100px auto" }}>
+        <div style={{ width: "60%", margin: "0 auto" }}>
             <div className="container">
                 <div className="row">
+
+                    {/* card 1 */}
                     <div className="col-md-4">
                         <div className="box">
                             <img src={card1} alt="card1" />
@@ -54,6 +56,8 @@ const FeaturedCard = () => {
                             </div>
                         </div>
                     </div>
+
+                    {/* card 2 */}
                     <div className="col-md-4">
                         <div className="box">
                             <img src={card2} alt="card1" />
@@ -90,6 +94,7 @@ const FeaturedCard = () => {
                         </div>
                     </div>
 
+                    {/* card 3 */}
                     <div className="col-md-4">
                         <div className="box">
                             <img src={card3} alt="card1" />

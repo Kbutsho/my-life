@@ -1,0 +1,8 @@
+.touch {
+    margin: 100px 0;
+    background: #19A526;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
