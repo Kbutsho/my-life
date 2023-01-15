@@ -1,0 +1,36 @@
+.box {
+    margin: 10px 0;
+    height: 420px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 8px;
+}
+
+.box img {
+    width: 100%;
+}
+
+.box p {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #FF8500;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.box .text-area span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #19A526;
+}
+
+.box .text-area small {
+    font-size: 12px;
+    font-weight: bold;
+    color: lightgray;
+}
+
+.box .text-area .img img {
+    width: 90%;
+    color: #19A526;
+}
