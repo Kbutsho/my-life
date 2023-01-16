@@ -1,4 +1,5 @@
 import React from 'react';
+import Banks from '../../components/Banks/Banks';
 import GetInTouch from '../../components/GetInTouch/GetInTouch';
 import Header from '../../components/Header/Header';
 import Savings from '../../components/Savings/Savings';
@@ -14,6 +15,7 @@ const LandingPage = () => {
             <Savings/>
             <GetInTouch/>
             <Trip/>
+            <Banks/>
             <Footer/>
         </div>
     );
