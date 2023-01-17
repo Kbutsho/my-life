@@ -5,6 +5,9 @@ import { FiCreditCard, FiSearch } from 'react-icons/fi';
 import { BsShieldCheck } from 'react-icons/bs';
 import { SlPlane } from 'react-icons/sl';
 import { BiUser } from 'react-icons/bi';
+import { MdOutlineSpaceDashboard } from 'react-icons/md';
+import { AiOutlineLogin } from 'react-icons/ai';
+
 import '../../styles/Navbar.css';
 
 const Navbar = () => {
@@ -21,6 +24,9 @@ const Navbar = () => {
                         <Link className="nav-link mx-3" to="/"><BsShieldCheck className='me-2 mb-1' size="20px" /> Insurance</Link>
                         <Link className="nav-link mx-3" to="/"><SlPlane className='me-2 mb-1' size="20px" />Travel</Link>
                         <Link className="nav-link mx-3" to="/"><BiUser className='me-2 mb-1' size="20px" />My Profile</Link>
+                        <Link className="nav-link mx-3" to="/dashboard"><MdOutlineSpaceDashboard className='me-2 mb-1' size="20px" />Dashboard</Link>
+                        <Link className="nav-link mx-3" to="/signup"><AiOutlineLogin className='me-2 mb-1' size="20px" />Signup</Link>
+                        <Link className="nav-link mx-3" to="/login"><AiOutlineLogin className='me-2 mb-1' size="20px" />Login</Link>
                     </div>
                     <div className='ms-auto'>
                         <span style={{ cursor: "pointer" }}><FiSearch size="20px" color="#19A526"/></span>

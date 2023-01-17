@@ -57,7 +57,7 @@ const FeaturedCard = () => {
                     </div>
 
                     {/* card 2 */}
-                    <div className="col-md-4">
+                    <div className="col-md-4 ">
                         <div className="box">
                             <img src={card2} alt="card1" />
                             <div className="text-area p-4">
