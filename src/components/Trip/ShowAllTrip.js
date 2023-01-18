@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import tripData from './TripData';
 
 const ShowAllTrip = () => {
+    // load all trip data
     const [data] = useState(tripData)
     return (
         <div className='container'>

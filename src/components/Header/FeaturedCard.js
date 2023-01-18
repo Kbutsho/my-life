@@ -3,7 +3,6 @@ import '../../styles/FeaturedCard.css';
 import card1 from '../../assets/featured-card/card1.png'
 import card2 from '../../assets/featured-card/card2.png'
 import card3 from '../../assets/featured-card/card3.png'
-
 import account from '../../assets/featured-card/account.png'
 import money from '../../assets/featured-card/money.png'
 import card from '../../assets/featured-card/card.png'
@@ -123,7 +122,6 @@ const FeaturedCard = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

@@ -7,7 +7,6 @@ import { SlPlane } from 'react-icons/sl';
 import { BiUser } from 'react-icons/bi';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
 import { AiOutlineLogin } from 'react-icons/ai';
-
 import '../../styles/Navbar.css';
 
 const Navbar = () => {

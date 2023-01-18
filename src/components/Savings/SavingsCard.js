@@ -7,13 +7,16 @@ import ShowAllSavings from './ShowAllSavings';
 import savingsData from './SavingsData';
 
 const SavingsCard = () => {
+    //load all savings data
     const [data] = useState(savingsData);
     const slideRef = useRef()
+    // toggle slideshow and showAll
     const [showAll, setShowAll] = useState(true)
     const handelShowAll = (e) => {
         e.preventDefault();
         setShowAll(!showAll)
     }
+    // slide responsive
     const responsiveSettings = [
         {
             breakpoint: 800,
@@ -41,19 +44,52 @@ const SavingsCard = () => {
         <div className='savingsCard'>
             <div className='mb-4 d-flex justify-content-between container'>
                 <h3 style={{ color: "#646464", fontWeight: "bold" }}>Our Savings Deal</h3>
+                {/* toggle and show all button */}
                 {
-                    showAll ? <div>
-                        <span onClick={handelShowAll} style={{ color: "blue", fontWeight: "bold", textDecoration: "underline", cursor: "pointer", marginRight: "10px" }}>show all</span>
-
-                        <button onClick={() => slideRef.current.goBack()} className='btn btn-sm me-1' style={{ background: "rgba(211, 211, 211, 0.4)" }}> <TfiAngleLeft size="10px" /></button>
-                        <button onClick={() => slideRef.current.goNext()} className='btn btn-sm' style={{ background: "rgba(211, 211, 211, 0.4)" }}><TfiAngleRight size="10px" /></button>
-                    </div> : <div>
-                        <span onClick={handelShowAll} style={{ color: "blue", fontWeight: "bold", textDecoration: "underline", cursor: "pointer", marginRight: "10px" }}>slide show</span>
-                    </div>
+                    showAll ?
+                        <div>
+                            <span
+                                onClick={handelShowAll}
+                                style={{
+                                    color: "blue", fontWeight: "bold", textDecoration:
+                                        "underline", cursor: "pointer", marginRight: "10px"
+                                }}>
+                                show all</span>
+                            <button
+                                onClick={() => slideRef.current.goBack()}
+                                className='btn btn-sm me-1'
+                                style={{ background: "rgba(211, 211, 211, 0.4)" }}>
+                                <TfiAngleLeft size="10px" />
+                            </button>
+                            <button onClick={() => slideRef.current.goNext()}
+                                className='btn btn-sm'
+                                style={{ background: "rgba(211, 211, 211, 0.4)" }}
+                            ><TfiAngleRight size="10px" />
+                            </button>
+                        </div> :
+                        <div>
+                            <span
+                                onClick={handelShowAll}
+                                style={{
+                                    color: "blue", fontWeight: "bold", textDecoration:
+                                        "underline", cursor: "pointer", marginRight: "10px"
+                                }}>
+                                slide show
+                            </span>
+                        </div>
                 }
             </div>
+            {/* slide show */}
             {
-                showAll ? <Slide responsive={responsiveSettings} easing={"cubic-in"} autoplay={true} duration={1000} nextArrow={<button style={{ display: "none" }}></button>} prevArrow={<button style={{ display: "none" }}></button>} ref={slideRef}  transitionDuration={300}>
+                showAll ? <Slide
+                    responsive={responsiveSettings}
+                    easing={"cubic-in"}
+                    autoplay={true}
+                    duration={1000}
+                    ref={slideRef}
+                    transitionDuration={300}
+                    nextArrow={<button style={{ display: "none" }}></button>}
+                    prevArrow={<button style={{ display: "none" }}></button>}>
                     {
                         data.map((data) =>
                             <div className="container" key={data.id} >
@@ -79,7 +115,8 @@ const SavingsCard = () => {
                                             <td>{data.item3.value}</td>
                                         </tr>
                                     </table>
-                                    <button className='btn btn-outline-success mt-4 px-4 py-2 fw-bold' style={{ borderRadius: "50px" }}>Explore</button>
+                                    <button className='btn btn-outline-success mt-4 px-4 py-2 fw-bold'
+                                        style={{ borderRadius: "50px" }}>Explore</button>
                                 </div>
                             </div>
                         )

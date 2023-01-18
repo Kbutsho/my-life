@@ -4,6 +4,10 @@ import droller from '../../assets/Dashboard/droller.png';
 import '../../styles/Chart.css'
 const Graph = () => {
 
+    const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const Revenue = [3000, 10000, 12000, 15000, 18000, 21000, 19000, 15000, 16000, 13000, 16000, 14000];
+    const Expanse = [1000, 2000, 5000, 9000, 20000, 26000, 18000, 11000, 10000, 9000, 8000, 11000];
+
     const [graph] = useState({
         options: {
             colors: ['#66DA26', '#FF8500'],
@@ -11,7 +15,7 @@ const Graph = () => {
                 id: "basic-bar"
             },
             xaxis: {
-                categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+                categories: month
             },
             yaxis: {
                 min: 0,
@@ -27,15 +31,17 @@ const Graph = () => {
         series: [
             {
                 name: "Total Revenue: 53,00000",
-                data: [3000, 10000, 12000, 15000, 18000, 21000, 19000, 13000, 16000, 13000, 16000, 14000]
+                data: Revenue
             },
             {
                 name: "Total Expanse: 17,00,000",
-                data: [1000, 2000, 5000, 9000, 20000, 26000, 21000, 15000, 10000, 9000, 8000, 11000]
+                data: Expanse
             }
         ]
     })
 
+    const xaxis = ["Home", "Mobility", "Travel"]
+    const yaxis = [30000, 22000, 12000]
     const [chart] = useState({
         options: {
             bar: {
@@ -46,7 +52,7 @@ const Graph = () => {
             },
             colors: ['#66DA26'],
             xaxis: {
-                categories: ["Home", "Mobility", "Travel"]
+                categories: xaxis
             },
             yaxis: {
                 min: 0,
@@ -56,7 +62,7 @@ const Graph = () => {
         },
         series: [
             {
-                data: [30000, 22000, 12000]
+                data: yaxis
             }
         ]
     })

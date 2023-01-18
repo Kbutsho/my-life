@@ -7,13 +7,16 @@ import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
 const TripCard = () => {
+    //load all trip data
     const [data] = useState(tripData);
     const slideRef = useRef()
+    //toggle slideshow and all data
     const [showAll, setShowAll] = useState(true)
     const handelShowAll = (e) => {
         e.preventDefault();
         setShowAll(!showAll)
     }
+    // slide responsive
     const responsiveSettings = [
         {
             breakpoint: 800,
@@ -41,20 +44,44 @@ const TripCard = () => {
         <div className='tripCard'>
             <div className='mb-4 d-flex justify-content-between container'>
                 <h3 style={{ color: "#646464", fontWeight: "bold" }}>Inspiration for your next trip</h3>
+                 {/* toggle and show all button */}
                 {
-                    showAll ? <div>
-                        <span onClick={handelShowAll} style={{ color: "blue", fontWeight: "bold", textDecoration: "underline", cursor: "pointer", marginRight: "10px" }}>show all</span>
-
-                        <button onClick={() => slideRef.current.goBack()} className='btn btn-sm me-1' style={{ background: "rgba(211, 211, 211, 0.4)" }}> <TfiAngleLeft size="10px" /></button>
-                        <button onClick={() => slideRef.current.goNext()} className='btn btn-sm' style={{ background: "rgba(211, 211, 211, 0.4)" }}><TfiAngleRight size="10px" /></button>
-                    </div> : <div>
-                        <span onClick={handelShowAll} style={{ color: "blue", fontWeight: "bold", textDecoration: "underline", cursor: "pointer", marginRight: "10px" }}>slide show</span>
-                    </div>
+                    showAll ?
+                        <div>
+                            <span onClick={handelShowAll}
+                                style={{
+                                    color: "blue", fontWeight: "bold", textDecoration:
+                                        "underline", cursor: "pointer", marginRight: "10px"
+                                }}>show all</span>
+                            <button onClick={() => slideRef.current.goBack()}
+                                className='btn btn-sm me-1'
+                                style={{ background: "rgba(211, 211, 211, 0.4)" }}>
+                                <TfiAngleLeft size="10px" /></button>
+                            <button onClick={() => slideRef.current.goNext()}
+                                className='btn btn-sm'
+                                style={{ background: "rgba(211, 211, 211, 0.4)" }}>
+                                <TfiAngleRight size="10px" /></button>
+                        </div> :
+                        <div>
+                            <span onClick={handelShowAll}
+                                style={{
+                                    color: "blue", fontWeight: "bold", textDecoration:
+                                        "underline", cursor: "pointer", marginRight: "10px"
+                                }}>slide show</span>
+                        </div>
                 }
             </div>
-
+           {/* slide show */}
             {
-                showAll ? <Slide responsive={responsiveSettings} easing={"cubic-in"} autoplay={true} duration={1000} nextArrow={<button style={{ display: "none" }}></button>} prevArrow={<button style={{ display: "none" }}></button>} ref={slideRef} transitionDuration={300}>
+                showAll ? <Slide responsive={responsiveSettings}
+                    easing={"cubic-in"}
+                    autoplay={true}
+                    duration={1000}
+                    ref={slideRef}
+                    transitionDuration={300}
+                    nextArrow={<button style={{ display: "none" }}></button>}
+                    prevArrow={<button style={{ display: "none" }}></button>}
+                >
                     {
                         data.map(data =>
                             <div className="container" key={data.id} data-aos="zoom-in">
@@ -69,10 +96,7 @@ const TripCard = () => {
                         )
                     }
                 </Slide> : <ShowAllTrip />
-
             }
-
-
         </div>
     );
 };
