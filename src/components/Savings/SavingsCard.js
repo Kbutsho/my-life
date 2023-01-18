@@ -9,14 +9,36 @@ import savingsData from './SavingsData';
 const SavingsCard = () => {
     const [data] = useState(savingsData);
     const slideRef = useRef()
-
-    const [showAll, setShowAll] = useState(false)
+    const [showAll, setShowAll] = useState(true)
     const handelShowAll = (e) => {
         e.preventDefault();
         setShowAll(!showAll)
     }
+    const responsiveSettings = [
+        {
+            breakpoint: 800,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 500,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 300,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ];
     return (
-        <div style={{ width: "60%", margin: "0 auto" }}>
+        <div className='savingsCard'>
             <div className='mb-4 d-flex justify-content-between container'>
                 <h3 style={{ color: "#646464", fontWeight: "bold" }}>Our Savings Deal</h3>
                 {
@@ -31,10 +53,10 @@ const SavingsCard = () => {
                 }
             </div>
             {
-                showAll ? <Slide autoplay={true} duration={1000} nextArrow={<button style={{ display: "none" }}></button>} prevArrow={<button style={{ display: "none" }}></button>} ref={slideRef} slidesToScroll={1} slidesToShow={3} transitionDuration={300}>
+                showAll ? <Slide responsive={responsiveSettings} easing={"cubic-in"} autoplay={true} duration={1000} nextArrow={<button style={{ display: "none" }}></button>} prevArrow={<button style={{ display: "none" }}></button>} ref={slideRef}  transitionDuration={300}>
                     {
                         data.map((data) =>
-                            <div className="container" key={data.id}>
+                            <div className="container" key={data.id} >
                                 <div className="deal-box p-4">
                                     <img src={data.image} alt="ubs" className='mb-4' />
                                     <table>

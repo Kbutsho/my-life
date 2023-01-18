@@ -1,10 +1,11 @@
 .trip-box{
     margin: 20px 0;
-    min-height: 280px;
+    height: auto;
     background-color: white;
     border-radius: 10px;
     transition: .3s;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 2px;
+    padding: 0 0 20px 0;
 }
 .trip-box:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -21,9 +22,22 @@
     font-size: 12px;
 }
 .trip-box img{
+    border-radius: 10px;
     transition: 0.3s;
 }
 .trip-box img:hover{
     transform:scale(.9);
     border-radius: 10px;
+}
+@media screen and (min-width: 576px) {
+    .tripCard {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width: 786px) {
+    .tripCard {
+        width: 60%;
+        margin: 0 auto;
+    }
 }

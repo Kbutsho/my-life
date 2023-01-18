@@ -10,7 +10,7 @@ const Banks = () => {
     return (
         <div className='d-flex justify-content-center align-items-center' style={{ background: "#FFF4E7", padding: "100px 0", minHeight: "300px" }}>
             <div className='banks'>
-                <h4 className='text-center mb-4' style={{ fontWeight: "bold", color: "#19A526" }}>Our Remunerative <span style={{ color: "#FF8500" }}>Banks</span></h4>
+                <h4 className='text-center mb-4' style={{ fontWeight: "bold", color: "#19A526" }}>Our Remunerative <span className='h4 fw-bold' style={{ color: "#FF8500" }}>Banks</span></h4>
                 <div className='text-center'>
                     <img src={efg} alt="img" />
                     <img src={mirabaud} alt="img" />

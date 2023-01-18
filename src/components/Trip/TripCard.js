@@ -1,52 +1,77 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { TfiAngleLeft, TfiAngleRight } from 'react-icons/tfi';
 import '../../styles/TripCard.css';
-import germany from '../../assets/Trip/germany.png'
-import norway from '../../assets/Trip/norway.png'
-import us from '../../assets/Trip/us.png'
+import tripData from './TripData';
+import ShowAllTrip from './ShowAllTrip';
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
 
 const TripCard = () => {
+    const [data] = useState(tripData);
+    const slideRef = useRef()
+    const [showAll, setShowAll] = useState(true)
+    const handelShowAll = (e) => {
+        e.preventDefault();
+        setShowAll(!showAll)
+    }
+    const responsiveSettings = [
+        {
+            breakpoint: 800,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 500,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 300,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ];
     return (
-        <div style={{ width: "60%", margin: "0 auto" }}>
-            <div className='mb-4 d-flex justify-content-between'>
-                <h3 style={{
-                    color: "#646464", fontWeight: "bold"
-                }}>Inspiration for your next trip</h3>
-                <div>
-                    <span style={{ textDecoration: "underline", cursor: "pointer", marginRight: "10px" }}>show all</span>
-                    <button className='btn btn-sm me-1' style={{ background: "rgba(211, 211, 211, 0.2)" }}> <TfiAngleLeft size="10px" /></button>
-                    <button className='btn btn-sm' style={{ background: "rgba(211, 211, 211, 0.2)" }}><TfiAngleRight size="10px" /></button>
-                </div>
+        <div className='tripCard'>
+            <div className='mb-4 d-flex justify-content-between container'>
+                <h3 style={{ color: "#646464", fontWeight: "bold" }}>Inspiration for your next trip</h3>
+                {
+                    showAll ? <div>
+                        <span onClick={handelShowAll} style={{ color: "blue", fontWeight: "bold", textDecoration: "underline", cursor: "pointer", marginRight: "10px" }}>show all</span>
+
+                        <button onClick={() => slideRef.current.goBack()} className='btn btn-sm me-1' style={{ background: "rgba(211, 211, 211, 0.4)" }}> <TfiAngleLeft size="10px" /></button>
+                        <button onClick={() => slideRef.current.goNext()} className='btn btn-sm' style={{ background: "rgba(211, 211, 211, 0.4)" }}><TfiAngleRight size="10px" /></button>
+                    </div> : <div>
+                        <span onClick={handelShowAll} style={{ color: "blue", fontWeight: "bold", textDecoration: "underline", cursor: "pointer", marginRight: "10px" }}>slide show</span>
+                    </div>
+                }
             </div>
-            <div className="row">
-                <div className="col-md-4">
-                    <div className="trip-box">
-                        <img src={germany} alt="germany" className='w-100' />
-                        <div className='px-3'>
-                        <h6>Germany</h6>
-                        <small>15 days</small>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-4">
-                    <div className="trip-box">
-                        <img src={norway} alt="norway" className='w-100' />
-                        <div className='px-3'>
-                        <h6>Norway</h6>
-                        <small>1 months</small>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-4">
-                    <div className="trip-box">
-                        <img src={us} alt="us" className='w-100' />
-                        <div className='px-3'>
-                            <h6>United States</h6>
-                            <small>10 days</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            {
+                showAll ? <Slide responsive={responsiveSettings} easing={"cubic-in"} autoplay={true} duration={1000} nextArrow={<button style={{ display: "none" }}></button>} prevArrow={<button style={{ display: "none" }}></button>} ref={slideRef} transitionDuration={300}>
+                    {
+                        data.map(data =>
+                            <div className="container" key={data.id} data-aos="zoom-in">
+                                <div className="trip-box">
+                                    <img src={data.image} alt="germany" className='w-100' />
+                                    <div className='px-3'>
+                                        <h6>{data.country}</h6>
+                                        <small>{data.time}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
+                </Slide> : <ShowAllTrip />
+
+            }
+
 
         </div>
     );

@@ -1,18 +1,20 @@
 .box {
     margin: 20px 0;
-    height: 440px;
+    min-height: 440px;
     background-color: white;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 2px;
     transition: 0.3s;
 }
-.box:hover{
+
+.box:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .box img {
     width: 100%;
 }
+
 .box p {
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -37,4 +39,17 @@
 .box .text-area .img img {
     width: 90%;
     color: #19A526;
+}
+
+@media screen and (min-width: 576px) {
+    .featureCard {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width: 786px) {
+    .featureCard {
+        width: 60%;
+        margin: 0 auto;
+    }
 }

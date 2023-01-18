@@ -3,13 +3,12 @@ import savingsData from './SavingsData.js';
 
 const ShowAllSavings = () => {
     const [data] = useState(savingsData)
-
     return (
         <div className='container'>
             <div className="row">
                 {
                     data.map((data) =>
-                        <div className='col-md-4' key={data.id}>
+                        <div className='col-md-6 col-sm-12 col-lg-4' key={data.id} >
                             <div className="deal-box p-4">
                                 <img src={data.image} alt="ubs" className='mb-4' />
                                 <table>
