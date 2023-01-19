@@ -5,6 +5,8 @@ import loginBG from '../../assets/Login/login.png'
 import facebook from '../../assets/Login/facebook.png'
 import google from '../../assets/Login/google.png'
 import '../../styles/Signup.css';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css'
 
 const Signup = () => {
     const [show, setShow] = useState(false)
@@ -12,6 +14,8 @@ const Signup = () => {
         e.preventDefault()
         setShow(!show)
     }
+    const [value, setValue] = useState();
+
     return (
         <div style={{ maxWidth: "100%", minHeight: "100vh", overflowX: "hidden" }}>
             <div className="row">
@@ -38,7 +42,14 @@ const Signup = () => {
                             </div>
                             <div className="phone my-2">
                                 <label htmlFor="Phone">Phone</label>
-                                <input type="text" id="Phone" placeholder='Your phone number' className='my-2 form-control' />
+                                    <PhoneInput
+                                    className='input my-2'
+                                        id="Phone"
+                                        international
+                                        countryCallingCodeEditable={false}
+                                        defaultCountry="BD"
+                                        value={value}
+                                        onChange={value => setValue(value)} />
                             </div>
                             <div className="password my-2">
                                 <label htmlFor="password">Password</label>
